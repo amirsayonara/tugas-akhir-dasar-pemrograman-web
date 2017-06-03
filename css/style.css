@@ -1,0 +1,343 @@
+@font-face {
+    font-family: Arimo;
+    src: url("../font/Arimo/Arimo-Regular.ttf") format("truetype");
+}
+* {
+	font-family: 'Arimo', sans-serif;
+}
+/*format body*/
+body {
+	/*background-image: url('../images/background.jpg');
+	background-repeat: no-repeat;
+	background-position: top;*/
+	background-color: #f6f6f6;
+	width:100%;
+	margin:0px;
+}
+header h1 {
+	float: left;
+	margin: -85px 0px -85px 0px;
+	background-image: url('../images/logo.png');
+	background-size: 80px;
+	background-repeat: no-repeat;
+	background-position: left;
+	padding: 90px;
+}
+.header {
+	background-color: white;
+	top: 0;
+	width: 100%;
+	box-shadow: rgba(0, 0, 0, 0.14) 0px 0px 4px 2px;
+	height: 75px;
+	margin-top: 0px;
+}
+header {
+	padding: 12px 0px;
+}
+header, .halaman, .halaman_footer {
+	width: 960px;
+	margin: auto;
+}
+/* footer*/
+.footer {
+	overflow: auto;
+	background-color: #244f9d;
+}
+.halaman_footer {
+	padding: 20px 0px;
+	overflow: auto;
+}
+footer {
+	color: #fff;
+}
+.footer_kiri {
+	float: left;
+}
+.footer_kanan a {
+	color: #fff;
+}
+.footer_kanan a:hover {
+	text-decoration: none;
+}
+.footer_kanan {
+	float: right;
+	font-size: 14px;
+	margin-right: 10px;
+}
+/*khusus untuk navigation*/
+nav {
+	float: right;
+}
+nav ul {
+	margin: 0px;
+	padding: 15px 0px 15px 10px;
+}
+nav li {
+	display: inline;
+	margin-left: 10px;
+}
+nav li a {
+	color: #fff;
+	background-color: #244f9d;
+	border-radius: 5px;
+	padding: 15px;
+	text-decoration: none;
+	transition: background 0.8s;
+}
+nav li a:hover, nav li a.menu_sekarang {
+	background-color: rgb(252, 160, 1);
+	color: #fff;
+}
+/*pembungkus seluruh halaman*/
+.halaman {
+	margin: 15px auto 15px auto;
+	overflow: auto;
+}
+/*Slider atas*/
+.slider {
+	overflow: hidden;
+	margin-bottom: 15px;
+	border-radius: 5px;
+}
+.slider figure img {
+	width: 20%;
+	float: left;
+}
+@keyframes slide {
+	0% { left: 0%; }
+	15% { left: 0%; }
+	20% { left: -100%; }
+	35% { left: -100%; }
+	40% { left: -200%; }
+	55% { left: -200%; }
+	60% { left: -300%; }
+	75% { left: -300%; }
+	80% { left: -400%; }
+	95% { left: -400%; }
+	100% { left: 0%; }
+}
+.slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slide infinite; 
+}
+/*pembungkus sisi kanan*/
+.sisi_kanan {
+	float: right;
+	width: 645px;
+	/*margin: 5px 5px 5px 0px;*/
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 2px 0px;
+
+}
+/*pembungkus sisi kiri*/
+.sisi_kiri {
+	float: left;
+	width: 300px;
+	/*margin: 5px 0px 5px 5px;*/
+	margin-bottom: 2px;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 2px 0px;
+}
+/*format untuk setiap artikel*/
+.artikel {
+	margin: 10px;
+}
+/*khusus judul artikel*/
+.artikel h3 {
+	border-bottom: 1px solid #244f9d;
+	padding-bottom: 5px;
+	margin: 15px 0px 0px 0px;
+
+}
+.artikel h4 {
+	margin-top: 0px;
+}
+/*khusus paragraf artikel*/
+.artikel p {
+	text-align: justify;
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+/*format artikel sidebar (sisi kiri)*/
+.artikel_kiri {
+	margin: 15px 15px 20px 15px;
+	border: 3px solid #244f9d;
+	border-radius: 5px 5px 0px 0px;
+}
+.artikel_kiri p {
+	text-align: justify;
+	font-size: 14px;
+	padding: 10px;
+	margin: 0px;
+}
+.artikel_kiri h3 {
+	color: white;
+	background-color: #244f9d;
+	padding: 7px;
+	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+/* TAB METODE PEMBAYARAN */
+div.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #244f9d;
+}
+
+/* tombol tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.8s;
+}
+
+/* hover tombol tab */
+div.tab button:hover {
+    background-color: #244f9d;
+    color: white;
+}
+
+/* tab aktif */
+div.tab button.active {
+    background-color: #173a79;;
+    color: white;
+}
+
+/* konten tiap tab */
+.tabcontent {
+    display: none;
+    padding: 5px;
+    overflow: auto;
+    animation: fadeEffect 1s;
+} @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/* layout input pada form */
+.tabcontent input[type="text"], .tabcontent input[type="submit"], .tabcontent input[type="password"] {
+	border: 1px solid #c5c5d0;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	height: 30px;
+	font-size: 16px;
+}
+.tabcontent textarea {
+	border: 1px solid #c5c5d0;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	height: 60px;
+	float: left;
+	width: 324px;
+	font-size: 16px;
+}
+.tabcontent input[type="submit"] {
+	height: 34px;
+}
+.tabcontent input[type="text"], .tabcontent input[type="password"] {
+	text-indent: 10px;
+}
+.tabcontent input[type="radio"] {
+	margin-bottom: 0px;
+}
+select, option {
+	height: 30px;
+	font-size: 16px;
+	border-radius: 3px;
+	border: 1px solid #c5c5d0;
+}
+select {
+	margin-bottom: 8px;
+}
+.sembunyi {
+	display: none;
+	margin-top: 180px;
+}
+.label {
+	text-align: left;
+	float: left;
+	width: 150px;
+}
+.isian {
+	float: left;
+	width: 328px;
+}
+form p {
+	clear: both;
+	padding: 3px;
+}
+/*format khusus pada isian input */
+#no_kartu, #berlaku_kartu, #cvv {
+	float: left;
+	margin-right: 5px;
+}
+#no_kartu {
+	width: 182px;
+}
+#berlaku_kartu, #pos {
+	width: 82px;
+}
+#cvv {
+	width: 50px;
+}
+.judul_kecil {
+	border-bottom: 1px solid #00f;
+	font-weight: bold;
+	margin-bottom: 10px;
+	display: none;
+	clear: both;
+}
+.salah {
+	font-size: 14px;
+	color: red;
+	display: none;
+	clear: both;
+	margin: 0 auto 5px auto;
+	width: fit-content;
+}
+/*kode pembayaran bank*/
+#kode {
+	width: 280px;
+	height: 50px;
+	margin: 0px auto 30px auto;
+	border: 3px solid blue;
+	vertical-align: center;
+	text-align: center;
+	font-size: 40px;
+}
+.tentang {
+	border: 1px solid #efe5e5;
+	background-color: #efe5e5;
+	border-radius: 5px;
+}
+.tentang td, .tentang th {
+	border: 1px solid #efe5e5;
+	border-radius: 5px;
+	background-color: #fff;
+}
+.tentang th {
+	height: 35px;
+	font-size: 20px;
+	padding: 5px;
+}
+.tentang td {
+	text-align: center;
+	width: 300px;
+	padding: 5px;
+}
+.tentang {
+	margin: auto;
+}
+.tentang tr {
+	margin: 0px;
+}
