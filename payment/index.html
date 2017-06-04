@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<title>Payment | Fly High Plane</title>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="icon" href="../images/logo.png">
+		<script type="text/javascript" src="../js/main.js"></script>
+	</head>
+	<body>
+		<!--pembungkus seluruh halaman-->
+		<div class="header">
+			<!--sisi atas (header)-->
+			<header>
+				<!--judul laman-->
+				<h1>Fly High Plane</h1>
+				<!--tombol navigasi atas-->
+				<nav>
+					<ul>
+						<li><a href="../">Beranda</a></li>
+						<li><a class="menu_sekarang">Pembayaran</a></li>
+						<li><a href="../about-us">Tentang Kami</a></li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		<div class="halaman">
+			<!--pembungkus sisi kanan-->
+			<div class="sisi_kanan">
+				<!--pembungkus  setiap artikel-->
+				<div class="artikel">
+					<h3>Pembayaran</h3>
+					<p>Fitur ini memungkinkan anda melakukan pembayaran dengan berbagai metode pembayaran sesuai dengan kebutuhan anda. Silahkan pilih salah satu metode pembayaran berikut ini:</p>
+					<!--tab metode pembayaran-->
+					<div class="tab">
+						<button class="tablinks" onclick="buka_tab(event, 'KartuKredit')">Kartu Kredit</button>
+						<button class="tablinks" onclick="buka_tab(event, 'ATM')">ATM</button>
+						<button class="tablinks" onclick="buka_tab(event, 'TransferBank')">Transfer Bank</button>
+					</div>
+					<div id="KartuKredit" class="tabcontent">
+						<h4>Kartu Kredit</h4>
+						<img alt="Master Card" src="../images/mastercard.png" height="25">
+						<img alt="Visa" src="../images/visa.png" height="25">
+						<p>Silahkan isi formulir berikut:</p>
+						<form onsubmit="return cek_no_pemesanan()">
+							<input type="text" name="no_pemesanan" id="no_pemesanan1" onkeypress="no_pemesanan_ubah(1)" placeholder="No. Pemesanan">
+							<input type="submit" value="Cari">
+						</form>
+						<div id="hasil1"></div>
+						<div class="sembunyi" id="form1">
+							<form id="form11" onsubmit="return lakukan_pembayaran1()">
+								<div class="judul_kecil">Kartu Kredit:</div>
+								<p><label class="label" for="no_kartu">No. Kartu Kredit:</label><input onkeypress="diubah('no_kartu');" onkeyup="no_kartu_ubah(event);" type="text" name="no_kartu" id="no_kartu" placeholder="0000-0000-0000-0000" maxlength="19"><input maxlength="7" onkeypress="diubah('berlaku_kartu');" onkeyup="berlaku_kartu_ubah(event);" type="text" name="berlaku_kartu" id="berlaku_kartu" placeholder="BB/TTTT"><input type="password" name="cvv" onkeypress="diubah('cvv')" onkeyup="cvv_ubah(event)" id="cvv" maxlength="3" placeholder="CVV"></p>
+								<div id="salah_no_kartu" class="salah">No. Kartu tidak valid</div>
+								<div id="salah_berlaku_kartu" class="salah">Masa berlaku kartu tidak valid</div>
+								<div id="salah_cvv" class="salah">CVV kartu tidak valid</div>
+								<div class="judul_kecil">Informasi Pribadi:</div>
+								<p><label class="label" for="nama_lengkap">Nama Lengkap:</label><input onchange="nama_lengkap_ubah()" onkeypress="diubah('nama_lengkap')" class="isian" type="text" name="nama_lengkap" id="nama_lengkap"></p>
+								<div id="salah_nama_lengkap" class="salah">Periksa kembali nama Anda!</div>
+								<p><label class="label">Jenis Kelamin:</label><label><input type="radio" name="kelamin" id="laki" onchange="diubah('kelamin')">Laki-laki</label><label><input type="radio" name="kelamin" id="perempuan" onchange="diubah('kelamin')">Perempuan</label></p>
+								<div id="salah_kelamin" class="salah">Salah satu harus dipilih</div>
+								<p><label for="pert1" class="label">Langganan E-mail</label><input type="checkbox" name="pert1" id="pert1"></p>
+								<p><label class="label" for="alamat">Alamat lengkap:</label><textarea onkeypress="diubah('alamat')" name="alamat" id="alamat"></textarea></p>
+								<div id="salah_alamat" class="salah">Alamat setidaknya terisi 2 Kata</div>
+								<p><label class="label" for="provinsi">Provinsi:</label>
+									<select id="provinsi" class="isian" onchange="diubah('provinsi')">
+										<option>Pilih salah satu:</option>
+										<option>Jawa Timur</option>
+										<option>Jawa Barat</option>
+										<option>Jawa Tengah</option>
+										<option>Kalimantan Timur</option>
+										<option>Kalimantan Barat</option>
+										<option>Kalimantan Tengah</option>
+									</select>
+								</p>
+								<div id="salah_provinsi" class="salah">Pilih salah satu</div>
+								<p><label class="label" for="kabupaten">Kabupaten/Kota:</label>
+									<select class="isian" id="kabupaten" onchange="diubah('kabupaten')">
+										<option>Pilih salah satu:</option>
+										<option>Bangkalan</option>
+										<option>Sampang</option>
+										<option>Pamekasan</option>
+										<option>Sumenep</option>
+										<option>Jakarta</option>
+										<option>Malang</option>
+										<option>Palembang</option>
+									</select>
+								</p>
+								<div id="salah_kabupaten" class="salah">Pilih salah satu</div>
+								<p><label class="label" for="pos">Kode Pos:</label><input onkeypress="diubah('pos')" onkeyup="pos_ubah(event)" maxlength="5" class="isian" type="text" name="pos" id="pos"></p>
+								<div id="salah_pos" class="salah">Periksa kembali Kode Pos anda</div>
+								<p><label for="email" class="label">E-mail:</label><input onkeypress="diubah('email')" class="isian" type="text" name="email" id="email"></p>
+								<div id="salah_email" class="salah">E-mail tidak valid</div>
+								<p><input type="submit" value="Lakukan Pembayaran"></p>
+							</form>
+						</div>
+						<div class="sembunyi" id="pembayaran1">
+						</div>
+					</div>
+
+					<div id="ATM" class="tabcontent">
+						<h4>ATM</h4>
+						<img alt="Link" src="../images/link.png" height="25">
+						<img alt="ATM" src="../images/atm.jpg" height="25">
+						<p>Silahkan isi formulir berikut:</p>
+						<form onsubmit="return cek_no_pemesanan()">
+							<input type="text" name="no_pemesanan" id="no_pemesanan2" onkeypress="no_pemesanan_ubah(2)" placeholder="No. Pemesanan">
+							<input type="submit" value="Cari">
+						</form>
+						<div id="hasil2"></div>
+						<div class="sembunyi" id="form2">
+							<p>Silahkan lakukan transfer pada salah satu No. Rekening berikut:</p>
+							<ol>
+								<li>BRI: 0006 1234 5678 9012</li>
+								<li>BNI: 0001 1234 5678 9012</li>
+							</ol>
+							<form id="form22" onsubmit="return lakukan_pembayaran2()">
+								<p><label class="label" for="no_rekening">No. Rekening Anda:</label><input class="isian" type="text" name="no_rekening" id="no_rekening" onkeypress="diubah('no_rekening');" onkeyup="no_rekening_ubah(event);" maxlength="19"></p>
+								<div id="salah_no_rekening" class="salah">No. Rekening tidak valid</div>
+								<p><label for='atas_nama' class="label">Atas Nama:</label><input class="isian" type="text" name="atas_nama" id="atas_nama" onkeypress="diubah('atas_nama')" onchange="atas_nama_ubah()"></p>
+								<div id="salah_atas_nama" class="salah">Periksa kembali nama Anda</div>
+								<p><label for="rekening_tujuan" class="label">No. Rekening Tujuan:</label><input class="isian" type="text" name="rekening_tujuan" id="rekening_tujuan" onkeypress="diubah('rekening_tujuan');" onkeyup="rekening_tujuan_ubah(event)" maxlength="19"></p>
+								<div id="salah_rekening_tujuan" class="salah">No. Rekening tujuan tidak valid</div>
+								<p><label for="nominal" class="label">Nominal (Rp):</label><input class="isian" type="text" name="nominal" id="nominal" onkeypress="diubah('nominal')" onkeyup="nominal_ubah(event)" placeholder="Contoh: 1234000 (Tanpa Rp dan titik)"></p>
+								<div id="salah_nominal" class="salah">Nominal tidak valid</div>
+								<p><input type="submit" value="Transfer"></p>
+							</form>
+						</div>
+						<div class="sembunyi" id="pembayaran2">
+							<h2>Pembayaran telah dilakukan</h2>
+						</div>
+					</div>
+
+					<div id="TransferBank" class="tabcontent">
+						<h4>Transfer Bank</h4>
+						<img alt="Transfer Bank" src="../images/banktransfer.png" height="25">
+						<p>Silahkan isi formulir berikut:</p>
+						<form onsubmit="return cek_no_pemesanan()">
+							<input type="text" name="no_pemesanan" id="no_pemesanan3" onkeypress="no_pemesanan_ubah(3)" placeholder="No. Pemesanan">
+							<input type="submit" value="Cari">
+						</form>
+						<div id="hasil3"></div>
+						<div class="sembunyi" id="form3">
+							<p>Silahkan berikan kode pembayaran berikut ke Bank terdekat, kemudian klik Konfirmasi Pembayaran.</p>
+							<div id="kode"></div>
+							<form id="form33" onsubmit="return lakukan_pembayaran3()">
+								<p><input type="submit" value="Konfirmasi Pembayaran"></p>
+							</form>
+						</div>
+						<div class="sembunyi" id="pembayaran3">
+							<h4>Pembayaran telah dilakukan</h4>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--pembungkus sisi kiri-->
+			<div class="sisi_kiri">
+				<!--pembungkus setiap artikel sidebar (sisi kiri)-->
+				<div class="artikel_kiri">
+					<h3>Informasi Terkini</h3>
+					<p>Sehubungan dengan adanya kendala sambungan intranet, maka pemesanan tiket pesawat tertentu mengalami gangguan. Demi kenyamanan dalam bertransaksi, kami menyarankan untuk menggunakan Master Card/Visa. Terima kasih dan mohon maaf atas ketidaknyamanan ini.</p>
+				</div>
+				<div class="artikel_kiri">
+					<h3>Tanggapan Kostumer</h3>
+					<p>Sangat Suka: 10%<br><br>
+					Suka: 30%<br><br>
+					Biasa: 50%<br><br>
+					Kurang Suka: 10%</p>
+				</div>
+				<div class="artikel_kiri">
+					<h3>Pengunjung</h3>
+					<p>Indonesia: 50680<br><br>
+					Luar Negeri: 1023</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="halaman_footer">
+				<footer class="footer_kanan">
+					: Jl. Raya Telang No. 12 Kamal, Bangkalan, Madura<br>
+					: (031) 3095221<br>
+					: fly@high.co.id<br>
+					: <a href="#">Facebook</a>, <a href="#">Twitter</a>, <a href="#">Instagram</a><br>
+				</footer>
+				<footer class="footer_kanan">
+					Kantor<br>
+					Telp.<br>
+					E-mail<br>
+					Ikuti Kami<br>
+				</footer>
+				<footer class="footer_kiri">
+					Copyright &copy; 2017 Fly High Plane
+				</footer>
+			</div>
+		</div>
+		<!--pemanggilan auto complete off pada input text-->
+		<script type="text/javascript">auto_complete_off()</script>
+	</body>
+</html>
